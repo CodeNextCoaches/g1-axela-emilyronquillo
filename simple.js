@@ -49,6 +49,13 @@
    function processInput(){
      let currentInput = input.value;
      input.value = '';
+
+     if (validInputs.indexOf(currentInput) == -1) {
+       message.innerHTML = "sOrRy bInCh, wHaTcHa sAaAaAyY";
+     } else {
+       message.innerHTML = responses [validInputs.indexOf(currentInput)];
+     }
+
      alert(currentInput);
    }
 

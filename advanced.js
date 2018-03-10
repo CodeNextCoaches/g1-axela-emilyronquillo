@@ -47,6 +47,21 @@
       anything other than 1 or 2 words. This will simply set the innerHTML of
       the message element to errorText.
    */
+   function processInput(){
+     if (advancedDiv.contains(picture)){
+       picture.removeChild();
+     }
+     var words = input.value.toLowerCase().trim().split(" ");
+     imput.value = '';
+
+     if (words.length == 1 ) {
+       if(greetings.indexOf(words[0]) > -1) {
+       message.innerHTML = 'Greetings!';
+     } else {
+       message.innerHTML = errorText;
+     }
+   }
+
 
   /*
    * who(word)

@@ -1,9 +1,9 @@
 (function () {
 
-  var input,
-      submit,
-      message,
-      advancedDiv,
+  var input = document.querySelector('#axela-input'),
+      submit = document.querySelector('#axela-submit'),
+      message = document.querySelector('#axela-message'),
+      advancedDiv = document.querySelector('#advanced'),
       errorText = "I don't understand you.",
       dunnoText = "I wasn't programmed to know that.",
       picture = null,
@@ -52,7 +52,7 @@
        picture.removeChild();
      }
      var words = input.value.toLowerCase().trim().split(" ");
-     imput.value = '';
+     input.value = '';
 
      if (words.length == 1 ) {
        if(greetings.indexOf(words[0]) > -1) {
@@ -60,7 +60,29 @@
      } else {
        message.innerHTML = errorText;
      }
+   }else if (words.length == 2) {
+     switch(words[0]){
+       case "who":
+       who(words[1]);
+       break;
+       case "what":
+       what(words[1]);
+       break;
+       case "where":
+       where(words[1]);
+       break;
+       case "tell":
+       tell(words[1]);
+       break;
+       case "show":
+       show(words[1]);
+       break;
+       default:
+       message.innerHTML = errorText;
+     }
+
    }
+ }
 
 
   /*
@@ -77,6 +99,42 @@
      dunnoText, NOT errorText (since it's not an error per se, Axela just
      doesn't know what they're referring to.)
    */
+
+function who(word){
+  switch (word) {
+    case 'you':
+      message.innerHTML = 'binch the names rodolfo';
+      break;
+    default:
+  }
+}
+
+function what(word){
+  switch (word) {
+    case 'life':
+      message.innerHTML = 'a living hell';
+      break;
+    default:
+  }
+}
+
+function what(word){
+  switch (word) {
+    case 'love':
+      message.innerHTML = 'baby dont hurt me';
+      break;
+    default:
+  }
+}
+
+function tell(word){
+  switch (word) {
+    case 'poem':
+      message.innerHTML = 'One fish / Two fish / Red fish / Blue fish. / Black fish / Blue fish / Old fish / New fish. / This one has a little star. / This one has a little car. / Say! What a lot / Of fish there are. ';
+      break;
+    default:
+  }
+}
 
   /*
    * what(word)
@@ -98,5 +156,22 @@
    * See above.
    */
 
+function show(word){
+  switch (word) {
+    case 'dog':
+    message.innerHTML = 'doggo';
+    picture = document.createElement('img');
+      picture.src = 'img/dog.png';
+      advancedDiv.appendChild(picture);
+      break;
+    case 'shaqcat':
+    picture = document.createElement('img');
+    picture.src = "img/shaqcat.gif";
+      advancedDiv.appendChild(picture);
+      break;
+      default:
+      message.innerHTML = dunnoText;
+  }
+}
 
 })();
